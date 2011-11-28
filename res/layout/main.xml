@@ -11,8 +11,8 @@
     <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView2" android:text="TextView" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 </LinearLayout>
 <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:layout_weight="1" android:layout_height="0dp">
-    <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_width="0dp" android:id="@+id/rockButton"></Button>
-    <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_width="0dp" android:id="@+id/paperButton"></Button>
-    <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_width="0dp" android:id="@+id/scissorsButton"></Button>
+    <Button android:layout_height="wrap_content" android:text="@string/rock" android:layout_weight="1" android:layout_width="0dp" android:id="@+id/rockButton"></Button>
+    <Button android:layout_height="wrap_content" android:text="@string/paper" android:layout_weight="1" android:layout_width="0dp" android:id="@+id/paperButton"></Button>
+    <Button android:layout_height="wrap_content" android:text="@string/scissors" android:layout_weight="1" android:layout_width="0dp" android:id="@+id/scissorsButton"></Button>
 </LinearLayout>
 </LinearLayout>
