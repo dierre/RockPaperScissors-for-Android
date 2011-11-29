@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent" android:layout_height="match_parent">
-<TextView  
-    android:layout_width="fill_parent" 
-    android:text="@string/hello"
-    android:layout_weight="1" android:layout_height="0dp"/>
-<LinearLayout android:layout_width="match_parent" android:id="@+id/linearLayout2" android:layout_weight="1" android:layout_height="0dp">
-    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView1" android:text="TextView" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
-    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView2" android:text="TextView" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
+    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:id="@+id/playerName" android:text="@string/player"></TextView>
+<TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="0" android:textSize="84sp" android:id="@+id/playerScore" android:layout_alignLeft="@+id/playerName" android:layout_below="@+id/playerName"></TextView>
+
+
+<TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true" android:id="@+id/opponentName" android:text="@string/computerPlayer"></TextView>
+<TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="0" android:id="@+id/opponentScore" android:layout_alignLeft="@+id/opponentName" android:layout_below="@+id/opponentName" android:textSize="84sp"></TextView>
+<LinearLayout android:layout_width="match_parent" android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+    <Button android:text="@string/rock" android:tag="ROCK" android:layout_weight="2" android:layout_width="0dp" android:layout_height="wrap_content" android:id="@+id/rockButton" android:layout_marginBottom="90dp"></Button>
+    <Button android:text="@string/paper" android:tag="PAPER" android:layout_weight="2" android:layout_width="0dp" android:layout_height="wrap_content" android:id="@+id/paperButton"></Button>
+    <Button android:text="@string/scissors" android:tag="SCISSORS" android:layout_weight="2" android:layout_width="0dp" android:layout_height="wrap_content" android:id="@+id/scissorsButton"></Button>
 </LinearLayout>
-<LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:layout_weight="1" android:layout_height="0dp">
-    <Button android:layout_height="wrap_content" android:text="@string/rock" android:layout_weight="1" android:layout_width="0dp" android:id="@+id/rockButton"></Button>
-    <Button android:layout_height="wrap_content" android:text="@string/paper" android:layout_weight="1" android:layout_width="0dp" android:id="@+id/paperButton"></Button>
-    <Button android:layout_height="wrap_content" android:text="@string/scissors" android:layout_weight="1" android:layout_width="0dp" android:id="@+id/scissorsButton"></Button>
-</LinearLayout>
-</LinearLayout>
+    
+    
+    </RelativeLayout>
