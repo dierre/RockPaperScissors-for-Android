@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@+id/relativeLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="top">
 <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:id="@+id/playerName" android:text="@string/player"></TextView>
 <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:text="0" android:textSize="84sp" android:id="@+id/playerScore" android:layout_alignLeft="@+id/playerName" android:layout_below="@+id/playerName"></TextView>
 
@@ -15,7 +15,7 @@
     <Button android:text="@string/paper" android:tag="PAPER" android:layout_weight="2" android:layout_width="0dp" android:layout_height="wrap_content" android:id="@+id/paperButton"></Button>
     <Button android:text="@string/scissors" android:tag="SCISSORS" android:layout_weight="2" android:layout_width="0dp" android:layout_height="wrap_content" android:id="@+id/scissorsButton"></Button>
 </LinearLayout>
-<TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:text="TextView" android:layout_height="wrap_content" android:layout_above="@+id/linearLayout1" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:id="@+id/resultTextView"></TextView>
+<TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_alignParentLeft="true" android:layout_alignParentRight="true" android:id="@+id/resultTextView" android:layout_below="@+id/playerScore" android:layout_width="fill_parent" android:layout_height="wrap_content" android:gravity="center"></TextView>
     
     
     </RelativeLayout>
