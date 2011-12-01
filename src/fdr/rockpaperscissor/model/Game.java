@@ -74,5 +74,8 @@ public class Game {
 	public void setPlayerBScore(int playerBScore) {
 		this.playerBScore = playerBScore;
 	}
+	public void resetGame() {
+		playerAScore = playerBScore = 0;
+	}
 	
 }

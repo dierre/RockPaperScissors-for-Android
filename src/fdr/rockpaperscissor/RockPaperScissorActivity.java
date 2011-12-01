@@ -5,6 +5,9 @@ import fdr.rockpaperscissor.model.Game.Move;
 import fdr.rockpaperscissor.model.Game.Result;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -38,7 +41,31 @@ public class RockPaperScissorActivity extends Activity {
         findViewById(R.id.scissorsButton).setOnClickListener(buttonListener);
     }
     
-    public void refreshWidgetContent() {
+    
+    
+    /* (non-Javadoc)
+	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+	 */
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		boolean superReturnValue = super.onCreateOptionsMenu(menu);
+		
+		MenuItem item = menu.add("Start a new game");
+		item.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			@Override
+			public boolean onMenuItemClick(MenuItem item) {
+				model.resetGame();
+				refreshWidgetContent();
+				return false;
+			}
+		});		
+		
+		return superReturnValue;
+	}
+
+
+
+	public void refreshWidgetContent() {
     	((TextView) findViewById(R.id.playerScore)).setText(Integer.toString(model.getPlayerAScore()));
     	((TextView) findViewById(R.id.opponentScore)).setText(Integer.toString(model.getPlayerBScore()));
     	
