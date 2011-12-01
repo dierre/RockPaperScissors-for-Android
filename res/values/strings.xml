@@ -4,7 +4,7 @@
     <string name="rock">Rock</string>
     <string name="paper">Paper</string>
     <string name="scissors">Scissors</string>
-    <string name="app_name">RockPaperScissor</string>
+    <string name="app_name">Rock, Paper, Scissor!</string>
     <string name="player">Player</string>
     <string name="computerPlayer">Computer</string>
 </resources>
