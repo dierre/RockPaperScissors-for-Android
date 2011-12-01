@@ -79,6 +79,10 @@ public class RockPaperScissorActivity extends Activity {
     	
     	Result result = model.getResult();
     	TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
+    	if (result == null) {
+    		resultTextView.setText(null);
+    		
+    	}    	else {
     	switch (result) {
 		case PLAYER_A_WINS:
 			resultTextView.setText("You win!");
@@ -92,7 +96,7 @@ public class RockPaperScissorActivity extends Activity {
 		default:
 			break;
 		}
-    	
+    	}
     }
 
 	private void updateMoveImage(ImageView playerImageView, Move playerMove) {
@@ -102,6 +106,8 @@ public class RockPaperScissorActivity extends Activity {
 			playerImageView.setImageResource(R.drawable.paper);
 		else if (playerMove == Move.SCISSORS)
 			playerImageView.setImageResource(R.drawable.scissors);
+		else if (playerMove == null)
+			playerImageView.setImageDrawable(null);
 	}
     
 }

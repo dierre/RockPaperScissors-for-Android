@@ -76,6 +76,7 @@ public class Game {
 	}
 	public void resetGame() {
 		playerAScore = playerBScore = 0;
+		playerAMove = playerBMove = null;
 	}
 	
 }
