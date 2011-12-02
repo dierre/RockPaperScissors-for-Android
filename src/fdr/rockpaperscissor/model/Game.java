@@ -8,6 +8,7 @@ import java.util.Set;
 import android.util.Pair;
 
 public class Game implements Serializable {
+	private static final long serialVersionUID = 5979968947552904656L;
 	public enum Move {ROCK, PAPER, SCISSORS};
 	public enum Result {PLAYER_A_WINS, PLAYER_B_WINS, TIE}
 
