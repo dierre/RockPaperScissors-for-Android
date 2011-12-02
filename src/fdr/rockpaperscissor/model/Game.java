@@ -1,14 +1,14 @@
 package fdr.rockpaperscissor.model;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Pair;
 
-public class Game implements Serializable {
-	private static final long serialVersionUID = 5979968947552904656L;
+public class Game implements Parcelable {
 	public enum Move {ROCK, PAPER, SCISSORS};
 	public enum Result {PLAYER_A_WINS, PLAYER_B_WINS, TIE}
 
@@ -79,6 +79,44 @@ public class Game implements Serializable {
 	public void resetGame() {
 		playerAScore = playerBScore = 0;
 		playerAMove = playerBMove = null;
+	}
+	
+	@Override
+	public void writeToParcel(Parcel parcel, int flags) {
+		parcel.writeInt(playerAScore);
+		parcel.writeInt(playerBScore);
+
+		parcel.writeString(playerAMove.toString());
+		parcel.writeString(playerBMove.toString());
+	}
+	
+	public static final Parcelable.Creator<Game> CREATOR = new Creator<Game>() {
+		@Override
+		public Game createFromParcel(Parcel source) {
+			Game result = new Game();
+			result.playerAScore = source.readInt();
+			result.playerBScore = source.readInt();
+
+			String move;
+			
+			move = source.readString();
+			result.playerAMove = (move == null) ? null : Move.valueOf(move); 
+			
+			move = source.readString();
+			result.playerBMove = (move == null) ? null : Move.valueOf(move); 
+			return null;
+		}
+
+		@Override
+		public Game[] newArray(int size) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	};
+	
+	@Override
+	public int describeContents() {
+		return 0;
 	}
 	
 }

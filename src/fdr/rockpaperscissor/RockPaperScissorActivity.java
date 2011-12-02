@@ -27,7 +27,7 @@ public class RockPaperScissorActivity extends Activity {
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putSerializable(SERIALIZE_MODEL, model);
+		outState.putParcelable(SERIALIZE_MODEL, model);
 	}
 
 	Game model;
