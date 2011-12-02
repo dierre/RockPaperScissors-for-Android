@@ -1,12 +1,13 @@
 package fdr.rockpaperscissor.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
 import android.util.Pair;
 
-public class Game {
+public class Game implements Serializable {
 	public enum Move {ROCK, PAPER, SCISSORS};
 	public enum Result {PLAYER_A_WINS, PLAYER_B_WINS, TIE}
 

@@ -16,6 +16,20 @@ import android.widget.TextView;
 
 public class RockPaperScissorActivity extends Activity {
 	
+	private static final String SERIALIZE_MODEL = "fdr.rockpaperscissor.model.Game";
+
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+		model = (Game) savedInstanceState.get(SERIALIZE_MODEL);
+		refreshWidgetContent();
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putSerializable(SERIALIZE_MODEL, model);
+	}
+
 	Game model;
 	
     /** Called when the activity is first created. */
