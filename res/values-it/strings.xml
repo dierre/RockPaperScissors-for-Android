@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Morra cinese</string>
+
+	<string name="rock">Sasso</string>
+	<string name="paper">Carta</string>
+	<string name="scissors">Forbici</string>
+
+	<string name="player">Giocatore</string>
+	<string name="computerPlayer">Computer</string>
+	
+	<!-- Menu -->
+	<string name="startNewGame">Inizia una nuova partita</string>
+
+	<!-- Game outcomes -->
+	<string name="youWin">Hai vinto!</string>
+	<string name="opponentWins">Il tuo avversario ha vinto!</string>
+	<string name="tieResult">È un pareggio!</string>
+</resources>
