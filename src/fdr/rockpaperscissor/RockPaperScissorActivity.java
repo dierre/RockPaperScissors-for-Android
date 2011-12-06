@@ -102,13 +102,13 @@ public class RockPaperScissorActivity extends Activity {
 		} else {
 			switch (result) {
 			case PLAYER_A_WINS:
-				resultTextView.setText("You win!");
+				resultTextView.setText(R.string.youWin);
 				break;
 			case PLAYER_B_WINS:
-				resultTextView.setText("Your opponent wins!");
+				resultTextView.setText(R.string.opponentWins);
 				break;
 			case TIE:
-				resultTextView.setText("It's a tie!");
+				resultTextView.setText(R.string.tieResult);
 				break;
 			default:
 				break;

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, RockPaperScissorActivity!</string>
-    <string name="rock">Rock</string>
-    <string name="paper">Paper</string>
-    <string name="scissors">Scissors</string>
-    <string name="app_name">Rock, Paper, Scissors!</string>
-    <string name="player">Player</string>
-    <string name="computerPlayer">Computer</string>
+	<string name="hello">Hello World, RockPaperScissorActivity!</string>
+	<string name="rock">Rock</string>
+	<string name="paper">Paper</string>
+	<string name="scissors">Scissors</string>
+	<string name="app_name">Rock, Paper, Scissors!</string>
+	<string name="player">Player</string>
+	<string name="computerPlayer">Computer</string>
+
+	<!-- Game outcomes -->
+	<string name="youWin">You win!</string>
+	<string name="opponentWins">Your opponent wins!</string>
+	<string name="tieResult">It\'s a tie!</string>
 </resources>
