@@ -7,6 +7,9 @@
 	<string name="app_name">Rock, Paper, Scissors!</string>
 	<string name="player">Player</string>
 	<string name="computerPlayer">Computer</string>
+	
+	<!-- Menu -->
+	<string name="startNewGame">Start a new game</string>
 
 	<!-- Game outcomes -->
 	<string name="youWin">You win!</string>

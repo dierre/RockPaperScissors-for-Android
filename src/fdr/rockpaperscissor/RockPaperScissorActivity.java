@@ -68,7 +68,7 @@ public class RockPaperScissorActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		boolean superReturnValue = super.onCreateOptionsMenu(menu);
 
-		MenuItem item = menu.add("Start a new game");
+		MenuItem item = menu.add(R.string.startNewGame);
 		item.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem item) {
