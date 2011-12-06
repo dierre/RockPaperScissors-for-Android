@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RockPaperScissorActivity extends Activity {
-	
+
 	private static final String SERIALIZE_MODEL = "fdr.rockpaperscissor.model.Game";
 
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
@@ -31,43 +31,43 @@ public class RockPaperScissorActivity extends Activity {
 	}
 
 	Game model;
-	
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        model = new Game();
-        model.setGameChangeListener(new GameChangeListener() {
+
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		model = new Game();
+		model.setGameChangeListener(new GameChangeListener() {
 			@Override
 			public void onGameChange(Game game) {
 				refreshWidgetContent();
 			}
 		});
-        
-        setContentView(R.layout.main);
-        
-        OnClickListener buttonListener = new Button.OnClickListener() {
+
+		setContentView(R.layout.main);
+
+		OnClickListener buttonListener = new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Button self = (Button) v;
 				model.setPlayerAMove(Move.valueOf((String) self.getTag()));
 			}
 		};
-        findViewById(R.id.rockButton).setOnClickListener(buttonListener);
-        findViewById(R.id.paperButton).setOnClickListener(buttonListener);
-        findViewById(R.id.scissorsButton).setOnClickListener(buttonListener);
-    }
-    
-    
-    
-    /* (non-Javadoc)
+		findViewById(R.id.rockButton).setOnClickListener(buttonListener);
+		findViewById(R.id.paperButton).setOnClickListener(buttonListener);
+		findViewById(R.id.scissorsButton).setOnClickListener(buttonListener);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		boolean superReturnValue = super.onCreateOptionsMenu(menu);
-		
+
 		MenuItem item = menu.add("Start a new game");
 		item.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			@Override
@@ -75,12 +75,10 @@ public class RockPaperScissorActivity extends Activity {
 				model.resetGame();
 				return false;
 			}
-		});		
-		
+		});
+
 		return superReturnValue;
 	}
-
-
 
 	public void refreshWidgetContent() {
 		((TextView) findViewById(R.id.playerScore)).setText(Integer
@@ -128,5 +126,5 @@ public class RockPaperScissorActivity extends Activity {
 		else if (playerMove == null)
 			playerImageView.setImageDrawable(null);
 	}
-    
+
 }
