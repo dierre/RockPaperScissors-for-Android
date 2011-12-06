@@ -83,38 +83,40 @@ public class RockPaperScissorActivity extends Activity {
 
 
 	public void refreshWidgetContent() {
-    	((TextView) findViewById(R.id.playerScore)).setText(Integer.toString(model.getPlayerAScore()));
-    	((TextView) findViewById(R.id.opponentScore)).setText(Integer.toString(model.getPlayerBScore()));
-    	
-    	ImageView playerImageView = (ImageView) findViewById(R.id.playerMoveView);
-    	Move playerMove = model.getPlayerAMove();
-    	updateMoveImage(playerImageView, playerMove);
+		((TextView) findViewById(R.id.playerScore)).setText(Integer
+				.toString(model.getPlayerAScore()));
+		((TextView) findViewById(R.id.opponentScore)).setText(Integer
+				.toString(model.getPlayerBScore()));
 
-    	ImageView opponentImageView = (ImageView) findViewById(R.id.opponentMoveView);
-    	Move opponentMove = model.getPlayerBMove();
-    	updateMoveImage(opponentImageView, opponentMove);
-    	
-    	Result result = model.getResult();
-    	TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
-    	if (result == null) {
-    		resultTextView.setText(null);
-    		
-    	}    	else {
-    	switch (result) {
-		case PLAYER_A_WINS:
-			resultTextView.setText("You win!");
-			break;
-		case PLAYER_B_WINS:
-			resultTextView.setText("Your opponent wins!");
-			break;
-		case TIE:
-			resultTextView.setText("It's a tie!");
-			break;
-		default:
-			break;
+		ImageView playerImageView = (ImageView) findViewById(R.id.playerMoveView);
+		Move playerMove = model.getPlayerAMove();
+		updateMoveImage(playerImageView, playerMove);
+
+		ImageView opponentImageView = (ImageView) findViewById(R.id.opponentMoveView);
+		Move opponentMove = model.getPlayerBMove();
+		updateMoveImage(opponentImageView, opponentMove);
+
+		Result result = model.getResult();
+		TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
+		if (result == null) {
+			resultTextView.setText(null);
+
+		} else {
+			switch (result) {
+			case PLAYER_A_WINS:
+				resultTextView.setText("You win!");
+				break;
+			case PLAYER_B_WINS:
+				resultTextView.setText("Your opponent wins!");
+				break;
+			case TIE:
+				resultTextView.setText("It's a tie!");
+				break;
+			default:
+				break;
+			}
 		}
-    	}
-    }
+	}
 
 	private void updateMoveImage(ImageView playerImageView, Move playerMove) {
 		if (playerMove == Move.ROCK)
