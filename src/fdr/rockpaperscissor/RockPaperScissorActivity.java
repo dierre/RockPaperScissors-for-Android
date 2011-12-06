@@ -1,6 +1,7 @@
 package fdr.rockpaperscissor;
 
 import fdr.rockpaperscissor.model.Game;
+import fdr.rockpaperscissor.model.Game.GameChangeListener;
 import fdr.rockpaperscissor.model.Game.Move;
 import fdr.rockpaperscissor.model.Game.Result;
 import android.app.Activity;
@@ -21,7 +22,6 @@ public class RockPaperScissorActivity extends Activity {
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
 		model = (Game) savedInstanceState.get(SERIALIZE_MODEL);
-		refreshWidgetContent();
 	}
 
 	@Override
@@ -38,6 +38,12 @@ public class RockPaperScissorActivity extends Activity {
         super.onCreate(savedInstanceState);
         
         model = new Game();
+        model.setGameChangeListener(new GameChangeListener() {
+			@Override
+			public void onGameChange(Game game) {
+				refreshWidgetContent();
+			}
+		});
         
         setContentView(R.layout.main);
         
@@ -46,8 +52,6 @@ public class RockPaperScissorActivity extends Activity {
 			public void onClick(View v) {
 				Button self = (Button) v;
 				model.setPlayerAMove(Move.valueOf((String) self.getTag()));
-				
-				refreshWidgetContent();
 			}
 		};
         findViewById(R.id.rockButton).setOnClickListener(buttonListener);
@@ -69,7 +73,6 @@ public class RockPaperScissorActivity extends Activity {
 			@Override
 			public boolean onMenuItemClick(MenuItem item) {
 				model.resetGame();
-				refreshWidgetContent();
 				return false;
 			}
 		});		

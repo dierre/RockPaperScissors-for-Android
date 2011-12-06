@@ -12,6 +12,18 @@ public class Game implements Parcelable {
 	public enum Move {ROCK, PAPER, SCISSORS};
 	public enum Result {PLAYER_A_WINS, PLAYER_B_WINS, TIE}
 
+	public interface GameChangeListener {
+        void onGameChange(Game game);
+	}
+	
+	public Game() {
+		super();
+	}
+	
+//	public Game(GameChangeListener listener) {
+//		this.gameChangeListener = listener;
+//	}
+	
 	private Move playerAMove;
 	private Move playerBMove;
 	private int  playerAScore;
@@ -24,12 +36,14 @@ public class Game implements Parcelable {
 		this.playerAMove = playerAMove;
 		setPlayerBMove(chooseRandomMove());
 		updateScore();
+		notifyListener();
 	}
 	public synchronized Move getPlayerBMove() {
 		return playerBMove;
 	}
 	public synchronized void setPlayerBMove(Move playerBMove) {
 		this.playerBMove = playerBMove;
+		notifyListener();
 	}
 		
 	private Move chooseRandomMove() {
@@ -43,6 +57,7 @@ public class Game implements Parcelable {
 		Result result = getResult();
 		if (result == Result.PLAYER_A_WINS) playerAScore++;
 		else if (result == Result.PLAYER_B_WINS) playerBScore++;
+		notifyListener();
 	}
 	
 	public Result getResult() {
@@ -69,16 +84,19 @@ public class Game implements Parcelable {
 	}
 	public void setPlayerAScore(int playerAScore) {
 		this.playerAScore = playerAScore;
+		notifyListener();
 	}
 	public int getPlayerBScore() {
 		return playerBScore;
 	}
 	public void setPlayerBScore(int playerBScore) {
 		this.playerBScore = playerBScore;
+		notifyListener();
 	}
 	public void resetGame() {
 		playerAScore = playerBScore = 0;
 		playerAMove = playerBMove = null;
+		notifyListener();
 	}
 	
 	@Override
@@ -119,4 +137,16 @@ public class Game implements Parcelable {
 		return 0;
 	}
 	
+    private GameChangeListener gameChangeListener;
+    
+    /** @param l set the change listener. */
+    public void setGameChangeListener(GameChangeListener l) {
+        gameChangeListener = l;
+    }
+
+    private void notifyListener() {
+    	if (gameChangeListener != null)
+    		gameChangeListener.onGameChange(this);
+    }
+
 }
