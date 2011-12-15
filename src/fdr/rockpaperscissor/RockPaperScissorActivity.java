@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,7 +48,7 @@ public class RockPaperScissorActivity extends Activity {
 		});
 
 		setContentView(R.layout.main);
-
+		
 		OnClickListener buttonListener = new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -79,6 +81,8 @@ public class RockPaperScissorActivity extends Activity {
 
 		return superReturnValue;
 	}
+	
+	
 
 	public void refreshWidgetContent() {
 		((TextView) findViewById(R.id.playerScore)).setText(Integer
@@ -86,13 +90,20 @@ public class RockPaperScissorActivity extends Activity {
 		((TextView) findViewById(R.id.opponentScore)).setText(Integer
 				.toString(model.getPlayerBScore()));
 
+		Animation animation = new ScaleAnimation(0.0F, 1.0F, 0.0F, 1.0F, Animation.RELATIVE_TO_SELF, 0.5F, Animation.RELATIVE_TO_SELF, 0.5F);
+		animation.setDuration(300);
+		
 		ImageView playerImageView = (ImageView) findViewById(R.id.playerMoveView);
 		Move playerMove = model.getPlayerAMove();
 		updateMoveImage(playerImageView, playerMove);
+		playerImageView.setAnimation(animation);
 
 		ImageView opponentImageView = (ImageView) findViewById(R.id.opponentMoveView);
 		Move opponentMove = model.getPlayerBMove();
 		updateMoveImage(opponentImageView, opponentMove);
+		opponentImageView.setAnimation(animation);
+		
+		animation.start();
 
 		Result result = model.getResult();
 		TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
@@ -114,6 +125,7 @@ public class RockPaperScissorActivity extends Activity {
 				break;
 			}
 		}
+		
 	}
 
 	private void updateMoveImage(ImageView playerImageView, Move playerMove) {
