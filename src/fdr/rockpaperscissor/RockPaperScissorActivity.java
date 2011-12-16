@@ -103,13 +103,11 @@ public class RockPaperScissorActivity extends Activity {
 		updateMoveImage(opponentImageView, opponentMove);
 		opponentImageView.setAnimation(animation);
 		
-		animation.start();
-
 		Result result = model.getResult();
 		TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
+		resultTextView.setAnimation(animation);
 		if (result == null) {
 			resultTextView.setText(null);
-
 		} else {
 			switch (result) {
 			case PLAYER_A_WINS:
@@ -126,6 +124,8 @@ public class RockPaperScissorActivity extends Activity {
 			}
 		}
 		
+		animation.start();
+
 	}
 
 	private void updateMoveImage(ImageView playerImageView, Move playerMove) {
