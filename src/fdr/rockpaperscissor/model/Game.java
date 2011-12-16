@@ -104,8 +104,8 @@ public class Game implements Parcelable {
 		parcel.writeInt(playerAScore);
 		parcel.writeInt(playerBScore);
 
-		parcel.writeString(playerAMove.toString());
-		parcel.writeString(playerBMove.toString());
+		parcel.writeString(playerAMove == null ? null : playerAMove.toString());
+		parcel.writeString(playerBMove == null ? null : playerBMove.toString());
 	}
 	
 	public static final Parcelable.Creator<Game> CREATOR = new Creator<Game>() {
